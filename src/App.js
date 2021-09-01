@@ -3,8 +3,11 @@ import { useForm } from "react-hook-form"
 import './App.css';
 
 const App = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = (data) => console.log(data)
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const onSubmit = (data) => {
+    console.log(data)
+    reset();
+  }
   return (
     <div className="App">
       <form onSubmit={handleSubmit(onSubmit)} >
